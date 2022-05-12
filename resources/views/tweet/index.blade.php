@@ -7,11 +7,9 @@
     <title>つぶやきアプリ</title>
 </head>
 <body>
-    <?php
-        $demo = "<script>alert('xss');</script>";
-    ?>
 
     <h1>つぶやきアプリ</h1>
     <p>{{ $name }}</p>
+
 </body>
 </html>
