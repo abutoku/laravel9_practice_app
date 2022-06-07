@@ -6,14 +6,13 @@ use Illuminate\View\Component;
 
 class Options extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    private int $tweetId;
+    private int $userId;
+
+    public function __construct(int $tweetId, int $userId)
     {
-        //
+        $this->tweetId = $tweetId;
+        $this->userId = $userId;
     }
 
     /**
@@ -23,6 +22,8 @@ class Options extends Component
      */
     public function render()
     {
-        return view('components.tweet.options');
+        return view('components.tweet.options')
+            ->with('tweetId',$this->tweetId)
+            ->with('myTweet',\Illuminate\Support\Facades\Auth::id() === $this->userId);
     }
 }
